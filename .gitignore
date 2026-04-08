@@ -39,3 +39,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Bank statements & Uploaded Data
+*.pdf
+*.csv
+
+# Firebase Service Account Credentials
+*firebase-adminsdk*.json
+*service-account*.json
+firebase-credentials.json
+firebase-adminsdk.json
