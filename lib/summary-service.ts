@@ -28,7 +28,7 @@ export async function generateUserSummary(uid: string): Promise<string> {
     txSnap.forEach(doc => {
         const data = doc.data();
         const { month, year } = getMonthYear(data.date);
-        
+
         if (month === currentMonth && year === currentYear) {
             const amt = data.amount || 0;
             const cleanMerchant = normalizeMerchantName(data.originalDescription || data.description);
@@ -59,13 +59,13 @@ export async function generateUserSummary(uid: string): Promise<string> {
     // 4. Summarize Insight Metrics
     const sortedCats = Object.entries(catMap).sort((a, b) => b[1] - a[1]);
     const topCategory = sortedCats.length > 0 ? sortedCats[0][0] : "None";
-    
+
     const sortedMerchs = Object.entries(merchMap).sort((a, b) => b[1] - a[1]);
     const topMerchant = sortedMerchs.length > 0 ? sortedMerchs[0][0] : "None";
 
     // Recommendations (Step 2 logic: empty historical data for simplicity)
     const recommendations = getSavingRecommendations(catMap, {}, merchMap, totalSpend, false);
-    const savingsOpportunity = recommendations.length > 0 
+    const savingsOpportunity = recommendations.length > 0
         ? `${recommendations[0].title}: ${recommendations[0].hint}`
         : "No specific structural savings identified.";
 
