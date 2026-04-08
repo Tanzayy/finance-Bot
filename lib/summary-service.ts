@@ -7,6 +7,8 @@ import { normalizeMerchantName, enrichCategory, getSavingRecommendations, getMon
  * @param uid The unique identifier for the user in Firestore.
  */
 export async function generateUserSummary(uid: string): Promise<string> {
+    if (!adminDb) throw new Error("Firebase Admin database is not initialized.");
+
     const now = new Date();
     const currentMonth = now.getMonth();
     const currentYear = now.getFullYear();
