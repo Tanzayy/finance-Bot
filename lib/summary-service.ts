@@ -7,7 +7,8 @@ import { normalizeMerchantName, enrichCategory, getSavingRecommendations, getMon
  * @param uid The unique identifier for the user in Firestore.
  */
 export async function generateUserSummary(uid: string): Promise<string> {
-    if (!adminDb) throw new Error("Firebase Admin database is not initialized.");
+    const db = adminDb;
+    if (!db) throw new Error("Firebase Admin database is not initialized.");
 
     const now = new Date();
     const currentMonth = now.getMonth();
@@ -15,7 +16,7 @@ export async function generateUserSummary(uid: string): Promise<string> {
 
     // 1. Fetch Transactions (Debits) for the user
     // Fetch all user debits and filter for current month/year.
-    const txSnap = await adminDb.collection("transactions")
+    const txSnap = await db.collection("transactions")
         .where("userId", "==", uid)
         .where("type", "==", "debit")
         .get();
@@ -40,7 +41,7 @@ export async function generateUserSummary(uid: string): Promise<string> {
     });
 
     // 2. Fetch Budget
-    const budgetSnap = await adminDb.collection("budgets")
+    const budgetSnap = await db.collection("budgets")
         .where("userId", "==", uid)
         .get();
     let totalBudget = 0;
@@ -49,7 +50,7 @@ export async function generateUserSummary(uid: string): Promise<string> {
     });
 
     // 3. Fetch Active Alerts
-    const alertsSnap = await adminDb.collection("alerts")
+    const alertsSnap = await db.collection("alerts")
         .where("userId", "==", uid)
         .where("status", "==", "active")
         .get();
