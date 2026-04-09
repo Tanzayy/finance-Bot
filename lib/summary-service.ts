@@ -93,8 +93,27 @@ export async function sendSummaryToWhatsApp(uid: string, summary: string): Promi
     const from = process.env.TWILIO_WHATSAPP_FROM;
     const toRaw = process.env.TWILIO_WHATSAPP_TO;
 
+    // Debug logging to identify missing variables
+    console.log("🔍 Twilio config check:", {
+        hasAccountSid: !!accountSid,
+        hasAuthToken: !!authToken,
+        hasFrom: !!from,
+        hasTo: !!toRaw,
+        accountSidLength: accountSid?.length,
+        authTokenLength: authToken?.length,
+        fromValue: from,
+        toValue: toRaw
+    });
+
     if (!accountSid || !authToken || !from || !toRaw) {
-        throw new Error("Twilio credentials not configured.");
+        const missing = [];
+        if (!accountSid) missing.push("TWILIO_ACCOUNT_SID");
+        if (!authToken) missing.push("TWILIO_AUTH_TOKEN");
+        if (!from) missing.push("TWILIO_WHATSAPP_FROM");
+        if (!toRaw) missing.push("TWILIO_WHATSAPP_TO");
+
+        console.error("❌ Missing Twilio credentials:", missing);
+        throw new Error(`Twilio credentials not configured. Missing: ${missing.join(", ")}`);
     }
 
     const client = twilio(accountSid, authToken);
