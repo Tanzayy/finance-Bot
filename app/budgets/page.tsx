@@ -94,7 +94,7 @@ export default function BudgetsPage() {
                     backHref="/dashboard"
                 />
 
-                <section className="rounded-3xl border border-white/[0.06] bg-white/[0.01] p-8 md:p-10 relative overflow-hidden">
+                <section className="rounded-3xl border border-white/[0.06] bg-[#242424] p-8 md:p-10 relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-80 h-80 bg-white/[0.02] rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
                     
                     <div className="space-y-10 relative z-10">
@@ -126,7 +126,7 @@ export default function BudgetsPage() {
                                 <button
                                     onClick={handleSave}
                                     disabled={isSaving || !userId}
-                                    className="px-5 py-2 bg-white text-black rounded-xl font-bold text-[10px] uppercase tracking-widest transition-all hover:bg-gray-200 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.1)] disabled:opacity-30 disabled:cursor-not-allowed"
+                                    className="px-5 py-2 bg-[#d4d4d4] text-black rounded-xl font-bold text-[10px] uppercase tracking-widest transition-all hover:bg-gray-200 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.1)] disabled:opacity-30 disabled:cursor-not-allowed"
                                 >
                                     {isSaving ? "Saving..." : "Save Limits"}
                                 </button>

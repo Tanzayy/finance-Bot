@@ -90,7 +90,7 @@ export default function SettingsPage() {
                     {/* Profile Section */}
                     <section className="space-y-6">
                         <h3 className="text-[10px] font-bold tracking-[0.3em] uppercase text-white/20 px-1">Your Profile</h3>
-                        <div className="rounded-3xl border border-white/[0.06] bg-white/[0.01] p-8 space-y-8">
+                        <div className="rounded-3xl border border-white/[0.06] bg-[#242424] p-8 space-y-8">
                             <div className="flex flex-col md:flex-row md:items-center gap-8">
                                 <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-white/10 to-white/5 border border-white/10 flex items-center justify-center shrink-0 shadow-2xl">
                                     <span className="text-2xl font-semibold text-white/40">
@@ -116,7 +116,7 @@ export default function SettingsPage() {
                                         <button 
                                             onClick={handleUpdateProfile}
                                             disabled={isUpdating}
-                                            className="px-6 py-2.5 bg-white text-black rounded-xl font-bold text-[10px] uppercase tracking-widest hover:bg-gray-200 transition-all active:scale-95 disabled:opacity-30"
+                                            className="px-6 py-2.5 bg-[#d4d4d4] text-black rounded-xl font-bold text-[10px] uppercase tracking-widest hover:bg-gray-200 transition-all active:scale-95 disabled:opacity-30"
                                         >
                                             {isUpdating ? "Saving..." : "Update"}
                                         </button>
@@ -183,7 +183,7 @@ export default function SettingsPage() {
 
                     {/* Security Summary */}
                     <section className="pt-4">
-                        <div className="rounded-2xl border border-white/5 bg-white/[0.01] p-6 flex items-center justify-between">
+                        <div className="rounded-2xl border border-white/5 bg-[#242424] p-6 flex items-center justify-between">
                             <div className="flex items-center gap-4">
                                 <div className="w-10 h-10 rounded-full bg-emerald-500/5 border border-emerald-500/10 flex items-center justify-center">
                                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-400/80"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>

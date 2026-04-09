@@ -8,24 +8,30 @@ async function automationSummaryHandler(request: Request) {
     verifyAutomationSecret(request);
 
     // 2. Extract payload safely
-    let userId;
-    try {
-        const body = await request.json();
-        userId = body.userId;
-    } catch (e) {
-        return errorResponse("Invalid JSON payload.", 400);
+    let userId: string | null = null;
+    
+    if (request.method === "POST") {
+        try {
+            const body = await request.json();
+            userId = body.userId;
+        } catch (e) {
+            return errorResponse("Invalid JSON payload.", 400);
+        }
+    } else if (request.method === "GET") {
+        const { searchParams } = new URL(request.url);
+        userId = searchParams.get("userId");
     }
 
     if (!userId || typeof userId !== 'string') {
-        return errorResponse("Missing or invalid Target User ID in payload.", 400);
+        return errorResponse("Missing or invalid Target User ID in request.", 400);
     }
 
     // 3. Execute the summary process
     console.log(`[Automation] Triggering summary for user: ${userId}`);
-    const message = await generateUserSummary(userId);
-    const result = await sendSummaryToWhatsApp(userId, message);
+    await generateUserSummary(userId).then(message => sendSummaryToWhatsApp(userId, message));
 
-    return successResponse({ result }, "Weekly summary automation completed successfully.");
+    return NextResponse.json({ success: true });
 }
 
 export const POST = withErrorHandler(automationSummaryHandler);
+export const GET = withErrorHandler(automationSummaryHandler);

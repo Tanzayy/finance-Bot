@@ -375,7 +375,7 @@ export default function UploadPage() {
                 />
 
                 {/* Upload Card */}
-                <section className="rounded-3xl border border-white/[0.06] bg-white/[0.01] p-8 md:p-10 shadow-2xl space-y-10 relative overflow-hidden">
+                <section className="rounded-3xl border border-white/[0.06] bg-[#242424] p-8 md:p-10 shadow-2xl space-y-10 relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-80 h-80 bg-white/[0.02] rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
 
 

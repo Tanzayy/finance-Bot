@@ -23,7 +23,7 @@ const CHART_COLORS = ['#6366f1', '#10b981', '#f59e0b', '#f43f5e', '#8b5cf6'];
 const CustomTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
         return (
-            <div className="bg-black/90 border border-white/10 rounded-xl p-3 shadow-2xl backdrop-blur-md">
+            <div className="bg-[#1a1a1a]/95 border border-white/10 rounded-xl p-3 shadow-2xl backdrop-blur-md">
                 <p className="text-[10px] text-white/50 font-bold uppercase mb-1 tracking-widest">{label}</p>
                 <p className="text-sm font-bold text-white">
                     {new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(payload[0].value)}
@@ -462,7 +462,7 @@ export default function DashboardPage() {
                                     onClick={() => setFilterMode(filter.id as FilterMode)}
                                     className={`px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all ${
                                         filterMode === filter.id 
-                                        ? 'bg-white text-black shadow-[0_0_15px_rgba(255,255,255,0.2)]'
+                                        ? 'bg-[#d4d4d4] text-black shadow-[0_0_10px_rgba(255,255,255,0.1)]'
                                         : 'bg-white/[0.03] text-white/40 border border-white/[0.05] hover:bg-white/[0.08] hover:text-white/80'
                                     }`}
                                 >
@@ -495,9 +495,9 @@ export default function DashboardPage() {
                                 onChange={(e) => setSelectedMonth(e.target.value === "all" ? "all" : parseInt(e.target.value))}
                                 className="bg-transparent border-none outline-none text-white/60 hover:text-white transition-colors cursor-pointer appearance-none"
                             >
-                                <option value="all" className="bg-black text-emerald-400">All Months</option>
+                                <option value="all" className="bg-[#242424] text-emerald-400">All Months</option>
                                 {MONTH_NAMES.map((name, idx) => (
-                                    <option key={idx} value={idx} className="bg-black">{name}</option>
+                                    <option key={idx} value={idx} className="bg-[#242424]">{name}</option>
                                 ))}
                             </select>
                             <span className="text-white/10">/</span>
@@ -506,9 +506,9 @@ export default function DashboardPage() {
                                 onChange={(e) => setSelectedYear(e.target.value === "all" ? "all" : parseInt(e.target.value))}
                                 className="bg-transparent border-none outline-none text-white/60 hover:text-white transition-colors cursor-pointer appearance-none"
                             >
-                                <option value="all" className="bg-black text-emerald-400">All Time</option>
-                                <option value={2026} className="bg-black">2026</option>
-                                <option value={2025} className="bg-black">2025</option>
+                                <option value="all" className="bg-[#242424] text-emerald-400">All Time</option>
+                                <option value={2026} className="bg-[#242424]">2026</option>
+                                <option value={2025} className="bg-[#242424]">2025</option>
                             </select>
                         </div>
                     )}
@@ -519,7 +519,7 @@ export default function DashboardPage() {
                             
                             <div className="grid gap-6 md:grid-cols-2">
                                 {/* Breakdown by Category (Visual + List) */}
-                                <section className="space-y-5 bg-white/[0.01] border border-white/[0.04] p-5 rounded-2xl flex flex-col shadow-xl">
+                                <section className="space-y-5 bg-[#242424] border border-white/[0.04] p-5 rounded-2xl flex flex-col shadow-xl">
                                     <h3 className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/40 border-l border-white/10 pl-3">
                                         Category Distribution
                                     </h3>
@@ -567,13 +567,13 @@ export default function DashboardPage() {
                                 </section>
 
                                 {/* Top Merchants Leaderboard */}
-                                <section className="space-y-5 bg-white/[0.01] border border-white/[0.04] p-5 rounded-2xl shadow-xl">
+                                <section className="space-y-5 bg-[#242424] border border-white/[0.04] p-5 rounded-2xl shadow-xl">
                                     <h3 className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/40 border-l border-white/10 pl-3">
                                         Where You Shop Most
                                     </h3>
                                     <div className="space-y-1 pt-1">
                                         {merchantData.length > 0 ? merchantData.map((merch, idx) => (
-                                            <div key={idx} className="flex items-center justify-between group py-2.5 border-b border-white/[0.02] last:border-0 hover:bg-white/[0.01] -mx-2 px-2 rounded-lg transition-colors">
+                                            <div key={idx} className="flex items-center justify-between group py-2.5 border-b border-white/[0.02] last:border-0 hover:bg-[#242424] -mx-2 px-2 rounded-lg transition-colors">
                                                 <div className="flex items-center gap-3 w-2/3">
                                                     <div className="w-5 h-5 rounded-md bg-white/[0.03] border border-white/[0.05] flex items-center justify-center shrink-0">
                                                         <span className="text-[8px] font-bold text-white/40">{idx + 1}</span>
@@ -593,7 +593,7 @@ export default function DashboardPage() {
 
                             {/* Time Series Chart */}
                             {timeSeriesData.length > 0 && (
-                                <section className="bg-white/[0.01] border border-white/[0.04] p-5 md:p-6 rounded-2xl shadow-xl">
+                                <section className="bg-[#242424] border border-white/[0.04] p-5 md:p-6 rounded-2xl shadow-xl">
                                     <div className="flex justify-between items-center mb-6">
                                         <h3 className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/40 border-l border-emerald-500/30 pl-3">
                                             Spending Overview
@@ -646,7 +646,7 @@ export default function DashboardPage() {
                                     </h3>
                                     <div className="space-y-3">
                                         {recurringSpends.map((rec, idx) => (
-                                            <div key={idx} className="p-4 rounded-xl bg-white/[0.01] border border-white/5 group hover:bg-white/[0.02] transition-colors">
+                                            <div key={idx} className="p-4 rounded-xl bg-[#242424] border border-white/5 group hover:bg-white/[0.02] transition-colors">
                                                 <div className="flex justify-between items-start mb-1.5">
                                                     <div className="flex flex-col gap-0.5">
                                                         <h4 className="text-[12px] font-bold text-white/90">{rec.merchant}</h4>
@@ -666,7 +666,7 @@ export default function DashboardPage() {
 
                         {/* Right Column: Insights & Alerts */}
                         <aside className="lg:col-span-4 space-y-6">
-                            <section className="rounded-2xl border border-white/[0.06] bg-white/[0.01] flex flex-col p-5 space-y-5 shadow-xl">
+                            <section className="rounded-2xl border border-white/[0.06] bg-[#242424] flex flex-col p-5 space-y-5 shadow-xl">
                                 <div className="flex justify-between items-center pb-2 border-b border-white/[0.03]">
                                     <h3 className="text-[10px] font-bold tracking-[0.3em] uppercase text-white/40">
                                         Insights
@@ -675,7 +675,7 @@ export default function DashboardPage() {
                                 </div>
                                 
                                 {momChange !== null && (
-                                    <div className="p-4 rounded-xl border border-white/[0.04] bg-white/[0.01] relative overflow-hidden group">
+                                    <div className="p-4 rounded-xl border border-white/[0.04] bg-[#242424] relative overflow-hidden group">
                                         <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                                         <p className="text-[9px] uppercase tracking-[0.2em] text-white/20 mb-1.5 relative z-10">Period Trend</p>
                                         <div className="flex items-baseline gap-2 relative z-10">
@@ -717,7 +717,7 @@ export default function DashboardPage() {
                                 </div>
                             </section>
 
-                            <section className="space-y-4 rounded-2xl border border-white/[0.06] bg-white/[0.01] p-5 shadow-xl">
+                            <section className="space-y-4 rounded-2xl border border-white/[0.06] bg-[#242424] p-5 shadow-xl">
                                 <h3 className="text-[10px] font-bold tracking-[0.3em] uppercase text-white/40 border-l border-red-500/20 pl-3">
                                     Critical Alerts
                                 </h3>
@@ -742,7 +742,7 @@ export default function DashboardPage() {
                                     </div>
                                 ) : (
                                     <div className="flex flex-col items-center justify-center p-6 text-center mt-2">
-                                        <div className="w-10 h-10 rounded-full border border-white/[0.05] bg-white/[0.01] flex items-center justify-center mb-3">
+                                        <div className="w-10 h-10 rounded-full border border-white/[0.05] bg-[#242424] flex items-center justify-center mb-3">
                                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-400/40">
                                                 <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                                                 <polyline points="22 4 12 14.01 9 11.01"></polyline>
@@ -768,7 +768,7 @@ export default function DashboardPage() {
                         </div>
 
                         {goals.length === 0 ? (
-                            <form onSubmit={handleCreateGoal} className="max-w-2xl bg-black/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden group">
+                            <form onSubmit={handleCreateGoal} className="max-w-2xl bg-[#242424]/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden group">
                                 <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10 w-full">
                                     <div className="space-y-1.5 flex flex-col justify-end">
@@ -799,7 +799,7 @@ export default function DashboardPage() {
                                     const gap = reqSavings - possibleSavings;
                                     
                                     return (
-                                        <div key={goal.id} className="p-6 rounded-2xl bg-white/[0.01] border border-white/[0.05] relative overflow-hidden group">
+                                        <div key={goal.id} className="p-6 rounded-2xl bg-[#242424] border border-white/[0.05] relative overflow-hidden group">
                                             <div className="flex justify-between items-start mb-6">
                                                 <div>
                                                     <h4 className="text-white font-semibold text-lg tracking-tight">{goal.name}</h4>

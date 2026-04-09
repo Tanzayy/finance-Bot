@@ -124,7 +124,7 @@ export default function InsightsPage() {
                 />
 
                 {!insights || insights.topCategories.length === 0 ? (
-                    <section className="flex flex-col items-center justify-center p-12 text-center rounded-3xl border border-white/[0.06] bg-white/[0.01] min-h-[400px] space-y-6">
+                    <section className="flex flex-col items-center justify-center p-12 text-center rounded-3xl border border-white/[0.06] bg-[#242424] min-h-[400px] space-y-6">
                         <div className="w-12 h-12 rounded-full border border-white/[0.04] bg-white/[0.02] flex items-center justify-center">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-white/20">
                                 <line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line>
@@ -143,7 +143,7 @@ export default function InsightsPage() {
                         <section className="lg:col-span-12 space-y-8">
                             <h3 className="text-[10px] font-bold tracking-[0.3em] uppercase text-white/40 px-1 border-l border-indigo-500/20 pl-3">Spending Breakdown</h3>
                             
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-white/[0.01] border border-white/[0.04] p-10 rounded-[2.5rem]">
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#242424] border border-white/[0.04] p-10 rounded-[2.5rem]">
                                 <div className="h-[280px] w-full relative group">
                                     <ResponsiveContainer width="100%" height="100%">
                                         <PieChart>
@@ -208,7 +208,7 @@ export default function InsightsPage() {
                         {/* Merchant Distribution Visualized */}
                         <section className="lg:col-span-7 space-y-8">
                             <h3 className="text-[10px] font-bold tracking-[0.3em] uppercase text-white/40 px-1 border-l border-emerald-500/20 pl-3">Top Merchants</h3>
-                            <div className="h-[320px] w-full bg-white/[0.01] border border-white/[0.04] p-8 rounded-[2.5rem] relative overflow-hidden group">
+                            <div className="h-[320px] w-full bg-[#242424] border border-white/[0.04] p-8 rounded-[2.5rem] relative overflow-hidden group">
                                 <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                                 <ResponsiveContainer width="100%" height="100%">
                                     <BarChart data={insights.merchantMetrics} layout="vertical" margin={{ left: -10, right: 30 }}>
@@ -275,7 +275,7 @@ export default function InsightsPage() {
                                         <p className="text-[9px] font-bold text-white/10 uppercase tracking-widest">Calculated over last 14 days</p>
                                     </div>
                                 </div>
-                                <div className="flex-1 p-8 rounded-[2.5rem] border border-white/[0.06] bg-white/[0.01] relative overflow-hidden group flex flex-col justify-center min-h-[135px]">
+                                <div className="flex-1 p-8 rounded-[2.5rem] border border-white/[0.06] bg-[#242424] relative overflow-hidden group flex flex-col justify-center min-h-[135px]">
                                     <div className="relative z-10 pl-2">
                                         <p className="text-[10px] font-bold text-white/40 uppercase tracking-[0.2em] mb-4 flex items-center gap-2">
                                             Weekly Average

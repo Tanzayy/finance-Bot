@@ -13,7 +13,7 @@ export default function Home() {
         <div className="flex gap-4 justify-center">
           <Link
             href="/signup"
-            className="px-5 py-2 bg-white text-black rounded-lg font-bold text-[10px] uppercase tracking-widest hover:bg-gray-200 transition-all active:scale-95 text-center"
+            className="px-5 py-2 bg-[#d4d4d4] text-black rounded-lg font-bold text-[10px] uppercase tracking-widest hover:bg-gray-200 transition-all active:scale-95 text-center"
           >
             Sign Up
           </Link>

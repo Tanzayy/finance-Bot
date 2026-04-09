@@ -53,7 +53,7 @@ export default function Sidebar() {
     };
 
     return (
-        <aside className="fixed top-0 left-0 h-screen w-[240px] bg-[#020202] border-r border-white/5 flex flex-col py-6 z-50 shadow-[4px_0_24px_rgba(0,0,0,0.4)]">
+        <aside className="fixed top-0 left-0 h-screen w-[240px] bg-[#1a1a1a] border-r border-white/5 flex flex-col py-6 z-50 shadow-[4px_0_24px_rgba(0,0,0,0.4)]">
             {/* Minimal Profile / Status Block */}
             <div className="px-5 pb-5 mb-5 relative">
                 <div className="flex items-center gap-3 relative z-10">
